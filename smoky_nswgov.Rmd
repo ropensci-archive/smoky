@@ -1,0 +1,64 @@
+---
+title: "smokybear"
+author: "Jen Richmond"
+date: "12/12/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# from nswgov 
+
+#packages 
+```{r}
+library(tidyverse)
+library(readxl)
+library(here)
+library(janitor)
+library(lubridate)
+```
+
+# Read the data, clean names
+```{r}
+nswgov <- read_csv(here("nswgov.csv")) %>%
+  clean_names()
+```
+
+
+# Change dates to date format
+```{r}
+
+nswgov$date <- dmy(nswgov$date)
+
+glimpse(nswgov)
+  
+```
+
+# Make it long
+```{r}
+nswgov_long <- nswgov %>%
+  select(1:27) %>%
+  pivot_longer(names_to = "site", values_to = "aqi", 2:27)
+```
+
+# Plot
+
+```{r}
+nswgov_long %>%
+  ggplot(aes(x = date, y = aqi, colour = site)) +
+  geom_point() +
+  theme(legend.position = "none")
+  
+```
+
+
+```{r}
+nswgov_long %>%
+  filter(date > "2018-12-31") %>%
+ggplot(aes(x = date, y = aqi, colour = site)) +
+  geom_point() +
+  theme(legend.position = "none")
+```
+
