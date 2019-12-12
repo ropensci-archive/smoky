@@ -1,5 +1,5 @@
 ---
-title: "Drop down"
+title: ""
 output: html_document
 runtime: shiny
 ---
@@ -9,7 +9,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-```{r load data & gather to long, echo=FALSE}
+```{r load data & gather to long, echo=FALSE, message=FALSE, warning=FALSE}
 
 suppressPackageStartupMessages(library(dplyr))
 suppressPackageStartupMessages(library(tidyr))
@@ -36,7 +36,7 @@ regions <- distinct(nswgov_long, site)
 ```
 
 
-```{r dropdown, echo=FALSE}
+```{r "", echo=FALSE}
 selectInput(
   'breaks', label = 'Is it smoky in:',
   choices = regions
