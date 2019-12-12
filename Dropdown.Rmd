@@ -1,0 +1,44 @@
+---
+title: "Drop down"
+output: html_document
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r load data & gather to long, echo=FALSE}
+
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(tidyr))
+suppressPackageStartupMessages(library(readr))
+suppressPackageStartupMessages(library(readxl))
+suppressPackageStartupMessages(library(here))
+suppressPackageStartupMessages(library(janitor))
+suppressPackageStartupMessages(library(lubridate))
+
+nswgov <- read_csv(here::here("data", "nswgov_daily.csv")) %>%
+  clean_names()
+
+nswgov$date <- dmy(nswgov$date)
+
+nswgov_long <- nswgov %>%
+  select(1:27) %>%
+  gather(key = "site", value = "aqi", 2:27)
+
+nswgov_long$site <- gsub("_raqi_24_hour_index","",nswgov_long$site)
+nswgov_long$site <- gsub("_"," ",nswgov_long$site)
+nswgov_long$site <- stringr::str_to_title(nswgov_long$site, locale = "en")
+regions <- distinct(nswgov_long, site)
+  
+```
+
+
+```{r dropdown, echo=FALSE}
+selectInput(
+  'breaks', label = 'Is it smoky in:',
+  choices = regions
+)
+
