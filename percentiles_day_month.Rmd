@@ -83,6 +83,11 @@ adding percentile column with percentiles by month
 month_percent <- sydney %>%
   group_by(month) %>%
   mutate(percent = percent_rank(aqi)*100)
+
+#write to csv
+
+month_percent %>%
+  write_csv(here("data", "aqi_percentile_month.csv"))
 ```
 
 plot colour percent 
