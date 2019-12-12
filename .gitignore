@@ -1,3 +1,6 @@
 smoky_nswgov.html
 .Rproj.user
 *.Rproj
+smoky.Rcheck/
+smoky*.tar.gz
+smoky*.tgz

@@ -1,2 +1,5 @@
 ^smoky\.Rproj$
 ^\.Rproj\.user$
+^smoky\.Rcheck$
+^smoky.*\.tar\.gz$
+^smoky.*\.tgz$
