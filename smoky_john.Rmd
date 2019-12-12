@@ -1,0 +1,92 @@
+---
+title: "Average temperatures plot"
+author: "John Ormerod"
+date: "12/12/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+ 
+
+# from nswgov 
+
+#packages 
+```{r}
+library(tidyverse)
+library(readxl)
+library(here)
+library(janitor)
+library(lubridate)
+```
+
+# Read the data, clean names
+```{r}
+nswgov <- read_csv(here::here("data", "nswgov_daily.csv")) %>%
+  clean_names()
+```
+
+
+# Change dates to date format
+```{r}
+nswgov$date <- dmy(nswgov$date)
+glimpse(nswgov)
+  
+```
+
+# Make it long
+```{r}
+nswgov_long <- nswgov %>%
+  select(1:27) %>%
+  pivot_longer(names_to = "site", values_to = "aqi", 2:27)
+```
+
+# Plot
+
+```{r}
+nswgov_long %>%
+  ggplot(aes(x = date, y = aqi, colour = site)) +
+  geom_point() +
+  theme(legend.position = "none")
+  
+```
+
+
+```{r}
+this_site <- "sydney_central_east_raqi_24_hour_index"
+
+nswgov_long_this <- nswgov_long %>%
+  # filter(date > "2018-12-31", site==this_site) %>%
+  filter(site==this_site) %>%
+  na.omit() %>%
+  mutate(month=month(date)) 
+```
+
+```{r}
+nswgov_long_month <- nswgov_long_this %>%
+  group_by(month) %>% 
+  summarize(mean = mean(aqi),
+            q1 = quantile(aqi,0.05),
+            q2 = quantile(aqi,0.50),
+            q3 = quantile(aqi,0.95)) 
+
+nswgov_long_merge <- merge(nswgov_long_this, nswgov_long_month) 
+```
+
+```{r}
+g <- nswgov_long_merge %>%
+  filter(date > "2018-12-31") %>%
+  ggplot(aes(x = date, y = aqi)) +
+  geom_point(col="gray", size=1.2) +
+  geom_line(aes(x = date, y = q1, col="red"), size=1) + 
+  geom_line(aes(x = date, y = q2, col="red"), size=1) + 
+  geom_line(aes(x = date, y = q3, col="red"), size=1) + 
+  theme(legend.position = "none") + 
+  theme_bw() + 
+  xlab("year") +
+  ylab("Daily avarage") + 
+  scale_y_log10()
+  
+g
+```
