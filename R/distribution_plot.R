@@ -16,7 +16,7 @@ nswgov_long <- nswgov %>%
 
 my_site <- "sydney_central_east_raqi_24_hour_index"
 
-today <- Sys.Date() - 10
+today <- Sys.Date()
 today_day <- day(today)
 today_month <- month(today)
 today_year <- year(today)
@@ -44,9 +44,9 @@ library(ggplot2)
 ggplot(data = all, aes(x = aqi)) +
   geom_density(fill = "grey") +
   geom_vline(data = filter(all, date == today - 1), aes(xintercept = aqi), color = "red") +
-  geom_vline(aes(xintercept = quantile(aqi, prob = 25/100)), linetype = "dashed") +
-  geom_vline(aes(xintercept = quantile(aqi, prob = 50/100)), linetype = "dashed") +
-  geom_vline(aes(xintercept = quantile(aqi, prob = 75/100)), linetype = "dashed") +
+  geom_vline(aes(xintercept = quantile(aqi, prob = 25/100, na.rm = TRUE)), linetype = "dashed") +
+  geom_vline(aes(xintercept = quantile(aqi, prob = 50/100, na.rm = TRUE)), linetype = "dashed") +
+  geom_vline(aes(xintercept = quantile(aqi, prob = 75/100, na.rm = TRUE)), linetype = "dashed") +
   theme_bw(base_size = 20) +
   theme(panel.background = element_rect(fill = "transparent", colour = NA),
         panel.grid.minor = element_blank(), panel.grid.major = element_blank(),
