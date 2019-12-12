@@ -1,0 +1,118 @@
+---
+title: "grid plot"
+author: "Jen Richmond"
+date: "12/12/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(here)
+library(janitor)
+```
+
+
+## R Markdown
+
+```{r}
+aqi <- read_csv(here::here("data", "nswgov_daily.csv")) %>%
+  clean_names()
+```
+
+```{r}
+aqi$date <- dmy(aqi$date)
+
+glimpse(aqi)
+```
+
+# Make it long
+```{r}
+aqi_long <- aqi %>%
+  select(1:27) %>%
+  pivot_longer(names_to = "site", values_to = "aqi", 2:27)
+```
+
+select just sydney
+```{r}
+sydney <- aqi_long %>%
+  filter(site == "sydney_central_east_raqi_24_hour_index") 
+
+```
+
+# just 2019
+
+this is not what we want, percentiles over 2019, not that date across years
+
+```{r}
+sydney2019 <- sydney %>%
+  filter(date > "2018-12-31")
+
+percentile <- sydney2019 %>%
+  mutate(percentile = percent_rank(aqi)) %>%
+  mutate(percent_100 = percentile*100) 
+```
+
+# new approach
+
+use yday function from lubriate to get a day number  
+```{r}
+sydney <- sydney %>%
+  mutate(day = yday(date), month = month(date), year = year(date))  
+
+sydney$month <- as.factor(sydney$month)
+```
+
+```{r}
+glimpse(sydney)
+```
+
+This added percentile by day, but there are only 5 values. So maybe better to look at today relative to a month. 
+
+```{r}
+day_percent  <- sydney %>%
+  group_by(day) %>%
+  mutate(percent = percent_rank(aqi)*100)
+```
+
+adding percentile column with percentiles by month
+```{r}
+month_percent <- sydney %>%
+  group_by(month) %>%
+  mutate(percent = percent_rank(aqi)*100)
+```
+
+plot colour percent 
+```{r}
+month_percent %>%
+  ggplot(aes(x = month, y = aqi, colour = percent)) +
+  geom_point() +
+  scale_color_gradient(low="blue", high="red") +
+  facet_wrap(~ year) +
+  theme_classic()
+
+```
+
+```{r}
+# Library
+library(ggplot2)
+
+# Dummy data
+x <- LETTERS[1:20]
+y <- paste0("var", seq(1,20))
+data <- expand.grid(X=x, Y=y)
+data$Z <- runif(400, 0, 5)
+ 
+# Heatmap 
+ggplot(data, aes(X, Y, fill= Z)) + 
+  geom_tile()
+```
+
+We want y = month, x = day z = smokiness, but we will need to create dates that dont exist. 
+```{r}
+
+```
+
