@@ -388,26 +388,21 @@ summary {
 ## 1567 Northern Tablelands RAQI 24 hour [index] 1/0/T/F/TRUE/FALSE     30 &#39;C:/Users/Lara Easdale/Desktop/smoky/data/nswgov_daily.csv&#39;
 ## .... ........................................ .................. ...... ...........................................................
 ## See problems(...) for more details.</code></pre>
-<pre class="r"><code>nswgov_long$site &lt;- gsub(&quot;_raqi_24_hour_index&quot;,&quot;&quot;,nswgov_long$site)
-nswgov_long$site &lt;- gsub(&quot;_&quot;,&quot; &quot;,nswgov_long$site)
-nswgov_long$site &lt;- stringr::str_to_title(nswgov_long$site, locale = &quot;en&quot;)
-regions &lt;- distinct(nswgov_long, site)
-
-print(regions)</code></pre>
-<pre><code>## # A tibble: 26 x 1
-##    site                     
-##    &lt;chr&gt;                    
-##  1 Sydney Central East      
-##  2 Sydney North West        
-##  3 Sydney South West        
-##  4 Illawarra                
-##  5 Lower Hunter             
-##  6 Central Tablelands       
-##  7 South West Slopes        
-##  8 North West Slopes        
-##  9 Upper Hunter Muswellbrook
-## 10 Upper Hunter Singleton   
-## # ... with 16 more rows</code></pre>
+<div id="heading" class="section level1 tabset tabset-dropdown">
+<h1>Heading</h1>
+<div id="regions" class="section level2">
+<h2>regions</h2>
+</div>
+<div id="dropdown-2" class="section level2">
+<h2>Dropdown 2</h2>
+</div>
+<div id="dropdown-3" class="section level2">
+<h2>Dropdown 3</h2>
+</div>
+<div id="dropdown-4" class="section level2">
+<h2>Dropdown 4</h2>
+</div>
+</div>
 
 
 
