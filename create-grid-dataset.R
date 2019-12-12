@@ -3,12 +3,14 @@ library(dplyr)       # for data manipulation
 library(ggplot2)     # for data visualization
 library(janitor)
 library(lubridate)
+library(here)
+library(tidyverse)
 
-# Set the working directory
-setwd("C:\\Users\\Lizzie Reid\\Documents\\Business Development\\R Unconference\\smoky\\data")
+
 
 # Read CSV into R
-data <- read.csv(file="nswgov_daily.csv", header=TRUE, sep=",")
+data <- read_csv(here("data", "nswgov_daily.csv"))
+                 
 # Clean columns
 data<- clean_names(data)
 # Rename value column
@@ -48,3 +50,6 @@ data_joined <- data_joined %>%
     TRUE ~ "other"
   )
   )
+
+data_joined %>% write_csv(here("data", "aqi_percentile_joined.csv"))
+          
