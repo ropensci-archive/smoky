@@ -1,7 +1,6 @@
 library(tidyverse)
 library(here)
 
-
 #read percentile data data
 
 aqi <- read_csv(here("data", "aqi_percentile_joined.csv"))
