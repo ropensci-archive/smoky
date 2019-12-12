@@ -39,7 +39,16 @@ glimpse(nswgov)
 ```{r}
 nswgov_long <- nswgov %>%
   select(1:27) %>%
-  pivot_longer(names_to = "site", values_to = "aqi", 2:27)
+  pivot_longer(names_to = "site", values_to = "aqi", 2:27)  %>%
+  mutate(category = case_when(between(aqi, 0, 33) ~ "Very Good", 
+                             between(aqi, 34, 66) ~ "Good", 
+                            between(aqi, 67, 99) ~ "Fair", 
+                            between(aqi, 100, 149) ~ "Poor",
+                            between(aqi, 150, 200) ~ "Very Poor",
+                            (aqi > 200 ~ "Hazardous")))  
+  
+nswgov_long$category <- factor(nswgov_long$category, 
+                 levels = c("Very Good","Good","Fair","Poor","Very Poor","Hazardous"))
 ```
 
 # Plot
@@ -113,10 +122,11 @@ nswgov_long2 <- nswgov_long %>%
 jet.colors <- colorRampPalette(c("#F0FFFF", "cyan", "#007FFF", "yellow", 
                                  "#FFBF00", "orange", "red", "#7F0000"), bias = 2.25)
 
-p_anim <- ggplot(nswgov_long2, aes(x = date, y = site, fill = aqi)) + 
+p_anim <- ggplot(nswgov_long2, aes(x = date, y = site, fill = category)) + 
   geom_tile(size = 0.35) +
+  scale_fill_manual(values=c("#31add3","#99b964","#ffd236","#ec783a","#782d49","#d04730")) +
 #  scale_x_continuous(expand = c(0,0)) +
-  scale_fill_gradientn(colors = jet.colors(16), na.value = 'white') +
+#  scale_fill_gradientn(colors = jet.colors(16), na.value = 'white') +
   theme_minimal() +
   transition_time(date) + shadow_mark() 
 #  annotate(geom = "text", x = 1963.5, y = 50.5, label = "Vaccine introduced", size = 5, hjust = 0) +
@@ -126,7 +136,7 @@ p_anim <- ggplot(nswgov_long2, aes(x = date, y = site, fill = aqi)) +
 
 
   
-animate(p_anim)
+anim_save(p_anim, width = 1000, height = 600, width = 100, filename = "aqi_nsw.gif")
 ```
 
  

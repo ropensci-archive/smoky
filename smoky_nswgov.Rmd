@@ -40,7 +40,8 @@ glimpse(nswgov)
 ```{r}
 nswgov_long <- nswgov %>%
   select(1:27) %>%
-  pivot_longer(names_to = "site", values_to = "aqi", 2:27)
+  pivot_longer(names_to = "site", values_to = "aqi", 2:27) 
+
 ```
 
 # Plot
