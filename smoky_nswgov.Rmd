@@ -22,7 +22,7 @@ library(lubridate)
 
 # Read the data, clean names
 ```{r}
-nswgov <- read_csv(here("nswgov.csv")) %>%
+nswgov <- read_csv(here::here("data", "nswgov_daily.csv")) %>%
   clean_names()
 ```
 
