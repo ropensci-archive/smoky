@@ -37,8 +37,16 @@ regions <- distinct(nswgov_long, site)
 
 
 ```{r "", echo=FALSE}
-selectInput(
-  'breaks', label = 'Is it smoky in:',
-  choices = regions
-)
+
+selectInput('var',
+            label = 'Is it smoky in:',
+            choices = regions)
+textOutput("selected_var")
+
+
+renderText({
+    paste("You have selected", input$var, "the AQI yesterday was")
+  })
+  
+
 
