@@ -1,11 +1,14 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# smoky
+# Is it smoky right now?
 
 <!-- badges: start -->
 
 <!-- badges: end -->
+
+![Smokey the Bear- our
+mascot](https://upload.wikimedia.org/wikipedia/commons/e/e7/Uncle_Sam_style_Smokey_Bear_Only_You.jpg)
 
 The goal of smoky group was to pull together air quality data into a
 site akin to [isithotrightnow](https://isithotrightnow.com/).
@@ -19,8 +22,12 @@ information to guide decision making.
 
 ## deciding where to get data from
 
-We ended up settling on NSW gov data, although this data is not ideal.
-The site will only let us download daily average AQI.
+It took us a while to decide which data to use. We ended up settling on
+NSW gov data, although this data is not ideal. The site will only let us
+download daily average AQI. We are waiting on a call back re accessing
+the API for [this
+site](https://aqicn.org/city/australia/nsw/randwick/sydney-east/), which
+may have more comprehensive and up to date data.
 
 ## making a shiny app
 
@@ -34,6 +41,9 @@ We have been working on replicating plot 3 on the
 [isithotrightnow](https://isithotrightnow.com/) site.
 
 ![heatmap grid](https://isithotrightnow.com/output/066062/heatmap.png)
+
+There is the version that Lizzie created for 2019. The colour coding is
+percentiles relative to monthly values.
 
 The code to create Lizzie’s grid plots is [here](/R/grid_plot.R)
 
