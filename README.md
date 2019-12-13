@@ -7,7 +7,7 @@
 
 <!-- badges: end -->
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Uncle_Sam_style_Smokey_Bear_Only_You.jpg" title="A caption" alt="A caption" width="50%" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Uncle_Sam_style_Smokey_Bear_Only_You.jpg" title="A caption" alt="A caption" width="40%" />
 
 The goal of smoky group was to pull together air quality data into a
 site akin to [isithotrightnow](https://isithotrightnow.com/).
@@ -42,7 +42,10 @@ We have been working on replicating plot 3 on the
 ![heatmap grid](https://isithotrightnow.com/output/066062/heatmap.png)
 
 There is the version that Lizzie created for 2019. The colour coding is
-percentiles relative to monthly values.
+percentiles relative to monthly
+values.
+
+<img src="grid_plot.png" title="2019 AQI levels coloured by percentile" alt="2019 AQI levels coloured by percentile" width="40%" />
 
 The code to create Lizzie’s grid plots is [here](/R/grid_plot.R)
 

@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-```{r pressure, echo=FALSE, fig.cap="A caption", out.width = '50%'}
+```{r bear, echo=FALSE, fig.cap="A caption", out.width = '40%'}
 knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/e/e7/Uncle_Sam_style_Smokey_Bear_Only_You.jpg")
 ```
 
@@ -48,7 +48,10 @@ We have been working on replicating plot 3 on the [isithotrightnow](https://isit
 
 There is the version that Lizzie created for 2019. The colour coding is percentiles relative to monthly values. 
 
+```{r grid, echo=FALSE, fig.cap="2019 AQI levels coloured by percentile", out.width = '40%'}
 
+knitr::include_graphics("grid_plot.png")
+```
 
 
 The code to create Lizzie's grid plots is [here](/R/grid_plot.R) 
