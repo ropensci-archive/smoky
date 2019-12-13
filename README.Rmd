@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-```{r bear, echo=FALSE, fig.cap="A caption", out.width = '40%'}
+```{r bear, echo=FALSE, fig.cap="This is Smokey the Bear", out.width = '40%'}
 knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/e/e7/Uncle_Sam_style_Smokey_Bear_Only_You.jpg")
 ```
 
@@ -37,7 +37,11 @@ It took us a while to decide which data to use. We ended up settling on NSW gov 
 
 ## making a shiny app 
 
-The shiny app starts with a pulldown for site choice and tells you whether air quality is very good, good, poor, very poor, or hazardous. That text is also colour coded. 
+The shiny app starts with a pulldown for site choice and tells you whether air quality is very good, good, fair, poor, very poor, or hazardous, along with a recommendation how this might impact activities. 
+
+The app also displays the grid plot, the gganimate gif, and links to a page where you can support the RFS. 
+
+Stay tuned for a link once we work out how to host it on a server.... 
 
 ## grid plot
 
@@ -46,7 +50,7 @@ We have been working on replicating plot 3 on the [isithotrightnow](https://isit
 
 ![heatmap grid](https://isithotrightnow.com/output/066062/heatmap.png)
 
-There is the version that Lizzie created for 2019. The colour coding is percentiles relative to monthly values. 
+There is the version that Lizzie created for 2019. The colour coding is percentiles relative to monthly values. Note that the AQI value for Tuesday 10 Dec is too big for the box!
 
 ```{r grid, echo=FALSE, fig.cap="2019 AQI levels coloured by percentile", out.width = '100%'}
 
