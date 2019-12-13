@@ -36,3 +36,31 @@ We have been working on replicating plot 3 on the
 ![heatmap grid](https://isithotrightnow.com/output/066062/heatmap.png)
 
 ## gganimated historical change plot
+
+We used this tweet as a model…
+
+<blockquote class="twitter-tweet">
+
+<p lang="en" dir="ltr">
+
+Here's my early submission to
+<a href="https://twitter.com/hashtag/TidyTuesday?src=hash&amp;ref_src=twsrc%5Etfw">\#TidyTuesday</a>.
+This plot design (not my own) is striking for measles
+<a href="https://twitter.com/hashtag/vaccines?src=hash&amp;ref_src=twsrc%5Etfw">\#vaccines</a><a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">\#rstats</a>
+<a href="https://twitter.com/hashtag/r4ds?src=hash&amp;ref_src=twsrc%5Etfw">\#r4ds</a><br><br>Code:
+<a href="https://t.co/1iJls62hnk">https://t.co/1iJls62hnk</a>
+<a href="https://t.co/bPdjv8lD5h">pic.twitter.com/bPdjv8lD5h</a>
+
+</p>
+
+— James Wade (@JamesHWade)
+<a href="https://twitter.com/JamesHWade/status/1204223471519256577?ref_src=twsrc%5Etfw">December
+10,
+2019</a>
+
+</blockquote>
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+… and made this animated plot of AQI levels across 2019, colour coded by
+hazard level.
