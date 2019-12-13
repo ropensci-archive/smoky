@@ -7,6 +7,12 @@
 
 <!-- badges: end -->
 
+This repo was created at rOpenSci \#ozunconf19 at University of Sydney
+Dec 11-13 2019. The contributors to this project were Jen Richmond, John
+Ormerod, Disha Patil, Lara Easdale, Emily Kothe, Dani Navarro, Dale
+Machette, Kat Terris, and Lizzie
+Reid.
+
 <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Uncle_Sam_style_Smokey_Bear_Only_You.jpg" title="This is Smokey the Bear" alt="This is Smokey the Bear" width="40%" />
 
 The goal of smoky group was to pull together air quality data into a
