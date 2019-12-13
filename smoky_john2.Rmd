@@ -206,6 +206,12 @@ nswgov_long2$site <- factor(nswgov_long2$site,
 
 p_anim <- ggplot(nswgov_long2, aes(x = date, y = site, fill = category)) + 
   geom_tile(size = 0.35) +
+  geom_vline(xintercept = ymd("2014-01-01"), size=2, col="white") + 
+  geom_vline(xintercept = ymd("2015-01-01"), size=2, col="white") + 
+  geom_vline(xintercept = ymd("2016-01-01"), size=2, col="white") +
+  geom_vline(xintercept = ymd("2017-01-01"), size=2, col="white") +
+  geom_vline(xintercept = ymd("2018-01-01"), size=2, col="white") +
+  geom_vline(xintercept = ymd("2019-01-01"), size=2, col="white") + 
   scale_fill_manual(values=c("#31add3","#99b964","#ffd236","#ec783a","#782d49","#d04730")) +
 #  scale_x_continuous(expand = c(0,0)) +
 #  scale_fill_gradientn(colors = jet.colors(16), na.value = 'white') +
@@ -220,7 +226,7 @@ p_anim <- ggplot(nswgov_long2, aes(x = date, y = site, fill = category)) +
   
 anim_save(p_anim, width = 1000, height = 600, width = 100, filename = "aqi_nsw_since2014.gif", end_pause=50)
 
-library(beepr)
-beepr::beep(8)
+#library(beepr)
+#beepr::beep(8)
 ```
  
