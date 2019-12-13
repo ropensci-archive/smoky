@@ -49,6 +49,10 @@ nswgov_long <- nswgov %>%
   
 nswgov_long$category <- factor(nswgov_long$category, 
                  levels = c("Very Good","Good","Fair","Poor","Very Poor","Hazardous"))
+
+
+
+
 ```
 
 # Plot
@@ -118,6 +122,33 @@ nswgov_long2 <- nswgov_long %>%
   filter(!(site%in%c("research_monitoring_raqi_24_hour_index","northern_tablelands_raqi_24_hour_index"))) %>%
   mutate(site=stringr::str_remove(site,"raqi_24_hour_index")) %>%
   mutate(site=stringr::str_replace_all(site,"_"," "))  
+
+
+nswgov_long2$site <- factor(nswgov_long2$site, 
+                 levels = c("sydney central east ",
+                            "sydney north west ",
+                            "sydney south west ",
+                            "illawarra ",
+                            "lower hunter ",
+                            "central tablelands ",
+                            "south west slopes ",          
+                            "north west slopes ",           
+                            "upper hunter muswellbrook ",    
+                            "upper hunter singleton ",      
+                            "upper hunter maison dieu ",     
+                            "upper hunter singleton nw ",    
+                            "upper hunter camberwell ",      
+                            "upper hunter bulga ",           
+                            "upper hunter mt thorley ",     
+                            "upper hunter muswellbrook nw ", 
+                            "upper hunter wybong ",          
+                            "upper hunter aberdeen ",        
+                            "upper hunter singleton south ", 
+                            "upper hunter jerrys plains ",  
+                            "upper hunter warkworth ",       
+                            "upper hunter merriwa ",         
+                            "central coast ",                
+                            "newcastle local "))
   
 jet.colors <- colorRampPalette(c("#F0FFFF", "cyan", "#007FFF", "yellow", 
                                  "#FFBF00", "orange", "red", "#7F0000"), bias = 2.25)
@@ -136,16 +167,42 @@ p_anim <- ggplot(nswgov_long2, aes(x = date, y = site, fill = category)) +
 
 
   
-anim_save(p_anim, width = 1000, height = 600, width = 100, filename = "aqi_nsw.gif")
+anim_save(p_anim, width = 1000, height = 600, width = 100, filename = "aqi_nsw.gif", end_pause=50)
 ```
 ```{r}
 nswgov_long2 <- nswgov_long %>%
   filter(!(site%in%c("research_monitoring_raqi_24_hour_index","northern_tablelands_raqi_24_hour_index"))) %>%
   mutate(site=stringr::str_remove(site,"raqi_24_hour_index")) %>%
   mutate(site=stringr::str_replace_all(site,"_"," "))  
-  
-jet.colors <- colorRampPalette(c("#F0FFFF", "cyan", "#007FFF", "yellow", 
-                                 "#FFBF00", "orange", "red", "#7F0000"), bias = 2.25)
+
+
+nswgov_long2$site <- factor(nswgov_long2$site, 
+                 levels = c("sydney central east ",
+                            "sydney north west ",
+                            "sydney south west ",
+                            "illawarra ",
+                            "lower hunter ",
+                            "central tablelands ",
+                            "south west slopes ",          
+                            "north west slopes ",           
+                            "upper hunter muswellbrook ",    
+                            "upper hunter singleton ",      
+                            "upper hunter maison dieu ",     
+                            "upper hunter singleton nw ",    
+                            "upper hunter camberwell ",      
+                            "upper hunter bulga ",           
+                            "upper hunter mt thorley ",     
+                            "upper hunter muswellbrook nw ", 
+                            "upper hunter wybong ",          
+                            "upper hunter aberdeen ",        
+                            "upper hunter singleton south ", 
+                            "upper hunter jerrys plains ",  
+                            "upper hunter warkworth ",       
+                            "upper hunter merriwa ",         
+                            "central coast ",                
+                            "newcastle local "))
+
+
 
 p_anim <- ggplot(nswgov_long2, aes(x = date, y = site, fill = category)) + 
   geom_tile(size = 0.35) +
@@ -162,5 +219,8 @@ p_anim <- ggplot(nswgov_long2, aes(x = date, y = site, fill = category)) +
 
   
 anim_save(p_anim, width = 1000, height = 600, width = 100, filename = "aqi_nsw_since2014.gif", end_pause=50)
+
+library(beepr)
+beepr::beep(8)
 ```
  
