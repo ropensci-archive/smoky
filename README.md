@@ -7,8 +7,7 @@
 
 <!-- badges: end -->
 
-![Smokey the Bear- our
-mascot](https://upload.wikimedia.org/wikipedia/commons/e/e7/Uncle_Sam_style_Smokey_Bear_Only_You.jpg)
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Uncle_Sam_style_Smokey_Bear_Only_You.jpg" title="A caption" alt="A caption" width="50%" />
 
 The goal of smoky group was to pull together air quality data into a
 site akin to [isithotrightnow](https://isithotrightnow.com/).
