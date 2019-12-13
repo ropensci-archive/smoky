@@ -9,9 +9,6 @@ data <- read_csv(here("data", "aqi_percentile_month.csv"))
 data$month_lab <- month.abb[data$month]
 data$day_of_month <-day(data$date)
 
-# Set up png save
-png(filename = "grid_plot.png")
-
 #Create Plot
 ggplot(data %>% filter(year == "2019", aqi != "NA"), aes(x = day_of_month, y = reorder(month_lab,-month), fill = percent)) +
   geom_tile(color = "white", size = 0.35) +
@@ -23,5 +20,4 @@ ggplot(data %>% filter(year == "2019", aqi != "NA"), aes(x = day_of_month, y = r
   labs(fill = "AQI Percentile") +
   scale_x_continuous("Day of Month", labels = as.character(data$day_of_month), breaks = data$day_of_month)
 
-#Create PNG
-dev.off()
+ggsave("grid_plot.png")
