@@ -45,7 +45,7 @@ There is the version that Lizzie created for 2019. The colour coding is
 percentiles relative to monthly
 values.
 
-<img src="grid_plot.png" title="2019 AQI levels coloured by percentile" alt="2019 AQI levels coloured by percentile" width="40%" />
+<img src="grid_plot.png" title="2019 AQI levels coloured by percentile" alt="2019 AQI levels coloured by percentile" width="100%" />
 
 The code to create Lizzie’s grid plots is [here](/R/grid_plot.R)
 
