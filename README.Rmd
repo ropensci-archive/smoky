@@ -40,6 +40,7 @@ We have been working on replicating plot 3 on the [isithotrightnow](https://isit
 
 ![heatmap grid](https://isithotrightnow.com/output/066062/heatmap.png)
 
+The code to create Lizzie's grid plots is [here](/R/grid_plot.R) 
 
 ## gganimated historical change plot
 
@@ -47,8 +48,10 @@ We used this tweet as a model...
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Here&#39;s my early submission to <a href="https://twitter.com/hashtag/TidyTuesday?src=hash&amp;ref_src=twsrc%5Etfw">#TidyTuesday</a>. This plot design (not my own) is striking for measles <a href="https://twitter.com/hashtag/vaccines?src=hash&amp;ref_src=twsrc%5Etfw">#vaccines</a><a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <a href="https://twitter.com/hashtag/r4ds?src=hash&amp;ref_src=twsrc%5Etfw">#r4ds</a><br><br>Code: <a href="https://t.co/1iJls62hnk">https://t.co/1iJls62hnk</a> <a href="https://t.co/bPdjv8lD5h">pic.twitter.com/bPdjv8lD5h</a></p>&mdash; James Wade (@JamesHWade) <a href="https://twitter.com/JamesHWade/status/1204223471519256577?ref_src=twsrc%5Etfw">December 10, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-... and made this animated plot of AQI levels across 2019, colour coded by hazard level. 
+... and made this animated plot of AQI levels across 2019, colour coded by hazard level. You can find the code that generates these animations in the [smoky_john Rmd file](smoky_john2.Rmd). 
 
+This plot captures 2019 data. 
+![](aqi_nsw.gif)
 
-
-
+This plot captures 2014-2019 data. 
+![](aqi_nsw_since2014.gif)
