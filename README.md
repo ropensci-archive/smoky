@@ -35,6 +35,8 @@ We have been working on replicating plot 3 on the
 
 ![heatmap grid](https://isithotrightnow.com/output/066062/heatmap.png)
 
+The code to create Lizzie’s grid plots is [here](/R/grid_plot.R)
+
 ## gganimated historical change plot
 
 We used this tweet as a model…
@@ -63,4 +65,9 @@ This plot design (not my own) is striking for measles
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 … and made this animated plot of AQI levels across 2019, colour coded by
-hazard level.
+hazard level. You can find the code that generates these animations in
+the [smoky\_john Rmd file](smoky_john2.Rmd).
+
+This plot captures 2019 data. ![](aqi_nsw.gif)
+
+This plot captures 2014-2019 data. ![](aqi_nsw_since2014.gif)
