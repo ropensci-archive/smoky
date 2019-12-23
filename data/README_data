@@ -1,0 +1,19 @@
+README data
+
+1. nswgov_daily.csv 
+
+- regional AQI daily data downloaded from https://www.dpie.nsw.gov.au/air-quality/search-for-and-download-air-quality-data
+
+
+2. aqi_percentile_month.csv
+
+- data written from percentiles_day_month.Rmd
+
+3. aqi_percentile_joined.csv
+
+- data written from R/create-grid-dataset.R
+- this is NOT the data that ended up being used in the gridplot 
+
+4. aqi_percentile_hazard_categories.csv
+
+- data written from add hazard rating.R
