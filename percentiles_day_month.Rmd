@@ -9,10 +9,13 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r}
+This Rmd reads in the daily average AQI and calculates the percentile for each daily value relative to that month. Writes percentile values to csv file = aqi_percentile_month.csv
+
+```{r message=FALSE, warning=FALSE}
 library(tidyverse)
 library(here)
 library(janitor)
+library(lubridate)
 ```
 
 
@@ -43,10 +46,9 @@ sydney <- aqi_long %>%
 
 ```
 
-# just 2019
+# Just Sydney_2019
 
 this is not what we want, percentiles over 2019, not that date across years
-
 ```{r}
 sydney2019 <- sydney %>%
   filter(date > "2018-12-31")
@@ -56,7 +58,7 @@ percentile <- sydney2019 %>%
   mutate(percent_100 = percentile*100) 
 ```
 
-# new approach
+# Percentiles 
 
 use yday function from lubriate to get a day number  
 ```{r}
@@ -66,10 +68,7 @@ sydney <- sydney %>%
 sydney$month <- as.factor(sydney$month)
 ```
 
-```{r}
-glimpse(sydney)
-```
-
+### By day number 
 This added percentile by day, but there are only 5 values. So maybe better to look at today relative to a month. 
 
 ```{r}
@@ -78,7 +77,7 @@ day_percent  <- sydney %>%
   mutate(percent = percent_rank(aqi)*100)
 ```
 
-adding percentile column with percentiles by month
+### By month 
 ```{r}
 month_percent <- sydney %>%
   group_by(month) %>%
@@ -87,37 +86,7 @@ month_percent <- sydney %>%
 #write to csv
 
 month_percent %>%
-  write_csv(here("data", "aqi_percentile_month.csv"))
+  write_csv(here::here("data", "aqi_percentile_month.csv"))
 ```
 
-plot colour percent 
-```{r}
-month_percent %>%
-  ggplot(aes(x = month, y = aqi, colour = percent)) +
-  geom_point() +
-  scale_color_gradient(low="blue", high="red") +
-  facet_wrap(~ year) +
-  theme_classic()
-
-```
-
-```{r}
-# Library
-library(ggplot2)
-
-# Dummy data
-x <- LETTERS[1:20]
-y <- paste0("var", seq(1,20))
-data <- expand.grid(X=x, Y=y)
-data$Z <- runif(400, 0, 5)
- 
-# Heatmap 
-ggplot(data, aes(X, Y, fill= Z)) + 
-  geom_tile()
-```
-
-We want y = month, x = day z = smokiness, but we will need to create dates that dont exist. 
-```{r}
-
-```
 
