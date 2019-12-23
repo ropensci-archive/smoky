@@ -106,12 +106,19 @@ g
 
 
 
-```{r}
+```{r session_info, include=TRUE, echo=TRUE, results='markup'}
  
 library(tidyverse)
 library(gganimate)
 library(waffle)
 
+
+
+devtools::session_info()
+```
+
+
+```{r}
 #g <- ggplot(nswgov_long, aes(date, site, fill=log10(aqi))) + 
 #  geom_tile() +
 #  theme_bw() + 
