@@ -1,3 +1,5 @@
+# This code by lizzie calculates %tile ranges and adds a categorical smokieness variable. This is NOT the data that ended up being used in the grid plot 
+
 # Helper packages
 library(dplyr)       # for data manipulation
 library(ggplot2)     # for data visualization

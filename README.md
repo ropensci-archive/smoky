@@ -7,7 +7,13 @@
 
 <!-- badges: end -->
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Uncle_Sam_style_Smokey_Bear_Only_You.jpg" title="A caption" alt="A caption" width="40%" />
+This repo was created at rOpenSci \#ozunconf19 at University of Sydney
+Dec 11-13 2019. The contributors to this project were Jen Richmond, John
+Ormerod, Disha Patil, Lara Easdale, Emily Kothe, Dani Navarro, Dale
+Machette, Kat Terris, and Lizzie
+Reid.
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Uncle_Sam_style_Smokey_Bear_Only_You.jpg" title="This is Smokey the Bear" alt="This is Smokey the Bear" width="40%" />
 
 The goal of smoky group was to pull together air quality data into a
 site akin to [isithotrightnow](https://isithotrightnow.com/).
@@ -31,8 +37,13 @@ may have more comprehensive and up to date data.
 ## making a shiny app
 
 The shiny app starts with a pulldown for site choice and tells you
-whether air quality is very good, good, poor, very poor, or hazardous.
-That text is also colour coded.
+whether air quality is very good, good, fair, poor, very poor, or
+hazardous, along with a recommendation how this might impact activities.
+
+The app also displays the grid plot, the gganimate gif, and links to a
+page where you can support the RFS.
+
+Stay tuned for a link once we work out how to host it on a server….
 
 ## grid plot
 
@@ -42,7 +53,13 @@ We have been working on replicating plot 3 on the
 ![heatmap grid](https://isithotrightnow.com/output/066062/heatmap.png)
 
 There is the version that Lizzie created for 2019. The colour coding is
+<<<<<<< HEAD
 percentiles relative to monthly values.
+=======
+percentiles relative to monthly values. Note that the AQI value for
+Tuesday 10 Dec is too big for the
+box\!
+>>>>>>> c468be86fb47d579c2c44eed81e298adcd936488
 
 <img src="grid_plot.png" title="2019 AQI levels coloured by percentile" alt="2019 AQI levels coloured by percentile" width="100%" />
 
