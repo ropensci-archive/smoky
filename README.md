@@ -42,8 +42,7 @@ We have been working on replicating plot 3 on the
 ![heatmap grid](https://isithotrightnow.com/output/066062/heatmap.png)
 
 There is the version that Lizzie created for 2019. The colour coding is
-percentiles relative to monthly
-values.
+percentiles relative to monthly values.
 
 <img src="grid_plot.png" title="2019 AQI levels coloured by percentile" alt="2019 AQI levels coloured by percentile" width="100%" />
 
@@ -69,8 +68,7 @@ This plot design (not my own) is striking for measles
 
 — James Wade (@JamesHWade)
 <a href="https://twitter.com/JamesHWade/status/1204223471519256577?ref_src=twsrc%5Etfw">December
-10,
-2019</a>
+10, 2019</a>
 
 </blockquote>
 
